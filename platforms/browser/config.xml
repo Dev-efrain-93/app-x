@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.sefin.app.movil" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>SEFIN Móvil</name>
+    <description>
+        Aplicación móvil para servicios de la Secretaría de Finanzas del Estado de Campeche.
+    </description>
+    <author email="informatica.sefin@gmail.com" href="https://www.contribunet.campeche.gob.mx">
+        Subdirección de Sistemas de la Dirección de Informática de la Secretaría de Finanzas del Estado de Campeche.
+    </author>
+    <content original-src="index.html" src="http://localhost:8100" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-navigation href="http://localhost:8100" sessionid="41c959e5" />
+    <preference name="ScrollEnabled" value="false" />
+    <preference name="android-minSdkVersion" value="19" />
+    <preference name="BackupWebStorage" value="none" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
+    <preference name="FadeSplashScreenDuration" value="300" />
+    <preference name="SplashShowOnlyFirstTime" value="false" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="NavigationBarBackgroundColor" value="#000000" />
+    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyDJxtizfmmnhBASqy8rt_ioQ3NjLO_XbJQ" />
+    <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyDJxtizfmmnhBASqy8rt_ioQ3NjLO_XbJQ" />
+</widget>

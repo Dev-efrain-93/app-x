@@ -1,0 +1,96 @@
+ion-input {
+  --placeholder-opacity: 0.33;
+}
+
+ion-item {
+  --highlight-color-valid: none;
+  --highlight-color-invalid: none;
+  --highlight-color-focused: none;
+  --border-color: #f7f7f7;
+}
+
+.card-content-predial {
+  margin-top:-20px;
+}
+
+.toolbar-no-border {
+  --border-color: transparent;
+}
+
+.form-list {
+  margin: 0 -20px 0 -20px;
+}
+
+.scroll {
+  background: #ededed;
+}
+
+.predial-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.predial-card ion-card-header {
+  padding: 0;
+}
+
+.predial-card ion-card-header .item {
+  padding: 4px 16px;
+}
+
+.predial-card ion-card-content {
+  flex: 1 1 auto;
+  padding: 0;
+}
+
+.invalid {
+  border: 2px solid #ea6153;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.error-message {
+  color: var(--ion-color-danger);
+  margin: 2px;
+  vertical-align: middle;
+}
+
+.error-icon {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.validation-errors {
+  margin-top: 0px;
+  margin-left: 0px;;
+}
+
+.footer-button {
+  margin: 0px !important;
+}
+
+.col-align-end {
+  text-align: end;
+}
+
+.col-align-center {
+  text-align: center;
+}
+
+.cardfooter {
+  //border-top: 1px solid #efefef69;
+}
+
+.p-text-primary {
+  color: var(--ion-color-primary);
+  font-weight: 500;
+}
+
+.align-self-center{
+  align-self: center;;
+}
+
+.medium-color-text {
+  color: var(--ion-color-medium);
+}

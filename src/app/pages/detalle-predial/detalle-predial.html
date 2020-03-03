@@ -1,0 +1,439 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/app/tabs/predial"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentPopover($event)">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card mode="ios" button="true" (click)="toggleCardPredio()">
+    <ion-card-header>
+        <ion-card-title>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                  Predio
+              </ion-col>
+              <ion-col class="col-align-end">
+                  <!--<ion-icon *ngIf="detallePredial.predio.openPredio" name="close"></ion-icon>-->
+                  <ion-icon *ngIf="!detallePredial.predio.openPredio" src="../../../assets/icons/_ionicons_svg_ios-arrow-down.svg"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="detallePredial.predio.openPredio">
+      <ion-grid>
+          <ion-row>
+            <ion-col>
+                <p><strong>Propietario(s) </strong> </p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <p>
+                <span *ngFor="let propietario of detallePredial.predio.propietarios">
+                  {{propietario.nombre}} {{propietario.apellidoPaterno}} {{propietario.apellidoMaterno}}
+                  <br>
+                </span>
+              </p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <p><strong>Domicilio</strong></p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <p>
+                <span *ngIf="detallePredial.predio.calle"> CALLE {{detallePredial.predio.calle}}</span>
+                <span *ngIf="detallePredial.predio.numExterior"> NUM EXT {{detallePredial.predio.numExterior}}</span>
+                <span *ngIf="detallePredial.predio.numeroInterior"> NUM INT {{detallePredial.predio.numeroInterior}}</span>
+                <span *ngIf="detallePredial.predio.cruzamiento1"> ENTRE {{detallePredial.predio.cruzamiento1}}</span>
+                <span *ngIf="detallePredial.predio.cruzamiento2"> Y {{detallePredial.predio.cruzamiento2}}</span>
+                <span *ngIf="detallePredial.predio.colonia"> COLONIA {{detallePredial.predio.colonia}}</span>
+                <span *ngIf="detallePredial.predio.codigoPostal"> CP {{detallePredial.predio.codigoPostal}}</span>
+              </p>
+            </ion-col>
+          </ion-row>
+          
+          <ion-row class="row-informacion-predio">
+            <ion-col class="col-informacion-predio">
+              <ion-row>
+                <ion-col>
+                  <p><strong>Clave Catastral </strong></p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <p><span>{{detallePredial.predio.claveCatastral}}</span></p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                    <p><strong>Número de Cuenta </strong></p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <p><span>{{detallePredial.predio.numeroCuenta}}</span></p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                    <p><strong>Uso de Suelo </strong></p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <p><span>{{getTipoUsoDeSuelo(detallePredial.predio.idTipoUsoSuelo)}}</span></p>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="detallePredial.predio.juntaMunicipal">
+                <ion-col>
+                    <p><strong>Junta Municipal </strong></p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <p><span>{{detallePredial.predio.juntaMunicipal}}</span></p>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="detallePredial.adeudos.length > 0" button="true" mode="ios">
+    <ion-card-header (click)="toggleCardPredial()">
+      <ion-card-title>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+                Impuesto Predial
+            </ion-col>
+            <ion-col *ngIf="!detallePredial.openPredial" class="col-align-end">
+                {{ detallePredial.totalPredial | currency }}
+            </ion-col>
+            <!--<ion-col *ngIf="!detallePredial.openPredial" class="col-align-end" size="1">
+              <ion-icon src="../../../assets/icons/_ionicons_svg_ios-arrow-down.svg"></ion-icon>
+            </ion-col>-->
+          </ion-row>
+        </ion-grid>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="detallePredial.openPredial">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-list class="list-adeudos" lines="none">
+              <ion-item class="registros-detalles" *ngFor="let adeudoPredial of detallePredial.adeudos; let i = index">
+                <ion-grid>
+                  <ion-row class="item-periodo" (click)="togglePeriodoPredial(i); $event.stopPropagation();">
+                    <ion-col>
+                      <span>PERIODO {{adeudoPredial.anyoFiscal}}</span>
+                    </ion-col>
+                    <ion-col class="col-align-end" *ngIf="!adeudoPredial.open">
+                        {{adeudoPredial.importeTotal | currency}}
+                    </ion-col>
+                    <ion-col class="col-align-end" size="1">
+                        <ion-icon src="../../../assets/icons/_ionicons_svg_ios-arrow-forward.svg" *ngIf="!adeudoPredial.open"></ion-icon>
+                        <ion-icon src="../../../assets/icons/_ionicons_svg_ios-arrow-down.svg" *ngIf="adeudoPredial.open"></ion-icon>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row *ngIf="adeudoPredial.open">
+                    <ion-col>
+                        <!--<ion-row class="row-data" *ngIf="adeudoPredial.baseGravable || adeudoPredial.baseGravable >= 0">
+                          <ion-col>
+                            <p>Base Gravable</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{adeudoPredial.baseGravable | currency}}</p>
+                          </ion-col>
+                        </ion-row>-->
+                
+                        <ion-row class="row-data" *ngIf="adeudoPredial.descuentoBaseGravable || adeudoPredial.descuentoBaseGravable >= 0">
+                          <ion-col>
+                            <p>% Descuento Base Gravable</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{adeudoPredial.descuentoBaseGravable | currency}}</p>
+                          </ion-col>
+                        </ion-row>
+                
+                        <ion-row class="row-data" *ngIf="adeudoPredial.impuesto || adeudoPredial.impuesto >= 0"><!--IMPUESTO EN PREDIAL-->
+                          <ion-col>
+                            <p>Impuesto</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{adeudoPredial.impuesto | currency}}</p>
+                          </ion-col>
+                        </ion-row>
+                
+                        <ion-row class="row-data" *ngIf="adeudoPredial.impuestoPagar || adeudoPredial.impuestoPagar >= 0"><!--IMPORTE EN PREDIAL-->
+                          <ion-col>
+                            <p>Importe</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{adeudoPredial.impuestoPagar | currency}}</p>
+                          </ion-col>
+                        </ion-row>
+                
+                        <ion-row class="row-data" *ngIf="adeudoPredial.totalActualizaciones || adeudoPredial.totalActualizaciones >= 0">
+                          <ion-col>
+                            <p>Actualización</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{adeudoPredial.totalActualizaciones | currency}}</p>
+                          </ion-col>
+                        </ion-row>
+                
+                        <ion-row class="row-data" *ngIf="adeudoPredial.totalRecargos || adeudoPredial.totalRecargos >= 0">
+                          <ion-col>
+                            <p>Recargo</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{adeudoPredial.totalRecargos | currency}}</p>
+                          </ion-col>
+                        </ion-row>
+                
+                        <ion-row class="row-data" *ngIf="adeudoPredial.descuento || adeudoPredial.descuento >= 0">
+                          <ion-col>
+                            <p>Descuento / Recargo</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{adeudoPredial.descuento | currency}}</p>
+                          </ion-col>
+                        </ion-row>
+
+                        <ion-row class="row-data row-total-periodo" *ngIf="adeudoPredial.importeTotal || adeudoPredial.importeTotal >= 0">
+                          <ion-col>
+                            <p>Total</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{adeudoPredial.importeTotal | currency}}</p>
+                          </ion-col>
+                        </ion-row>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+
+              <ion-item class="registros-detalles item-subtotal">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <strong>SUBTOTAL</strong>
+                    </ion-col>
+                    <ion-col class="col-align-end">
+                      <strong>{{ detallePredial.totalPredial | currency }}</strong>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="detallePredial.basura.length > 0" button="true" mode="ios">
+    <ion-card-header (click)="toggleCardBasura()"> 
+      <ion-card-title>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+                Servicio Aseo y Basura
+            </ion-col>
+            <ion-col *ngIf="!detallePredial.openBasura" class="col-align-end">
+                {{ detallePredial.totalBasura | currency }}
+            </ion-col>
+            <!--<ion-col *ngIf="!detallePredial.openBasura" class="col-align-end" size="1">
+              <ion-icon src="../../../assets/icons/_ionicons_svg_ios-arrow-down.svg"></ion-icon>
+            </ion-col>-->
+          </ion-row>
+        </ion-grid>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="detallePredial.openBasura">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-list class="list-adeudos" lines="none">
+              <ion-item class="registros-detalles" *ngFor="let adeudoBasura of detallePredial.basura; let i = index">
+                <ion-grid>
+                  <ion-row class="item-periodo" (click)="togglePeriodoBasura(i); $event.stopPropagation();">
+                    <ion-col>
+                      <span>PERIODO {{adeudoBasura.anyoFiscal}}</span>
+                    </ion-col>
+                    <ion-col class="col-align-end" *ngIf="!adeudoBasura.open">
+                      {{ adeudoBasura.importeTotal | currency }}
+                    </ion-col>
+                    <ion-col class="col-align-end" size="1">
+                        <ion-icon src="../../../assets/icons/_ionicons_svg_ios-arrow-forward.svg" *ngIf="!adeudoBasura.open"></ion-icon>
+                        <ion-icon src="../../../assets/icons/_ionicons_svg_ios-arrow-down.svg" *ngIf="adeudoBasura.open"></ion-icon>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row *ngIf="adeudoBasura.open">
+                    <ion-col>
+              
+                      <ion-row class="row-data" *ngIf="adeudoBasura.descuentoBaseGravable || adeudoBasura.descuentoBaseGravable >= 0">
+                        <ion-col>
+                          <p>% Descuento Base Gravable</p>
+                        </ion-col>
+                        <ion-col class="col-align-end">
+                          <p>{{adeudoBasura.descuentoBaseGravable | currency}}</p>
+                        </ion-col>
+                      </ion-row>
+              
+                      <ion-row class="row-data" *ngIf="adeudoBasura.importe || adeudoBasura.importe >= 0"><!--IMPUESTO EN BASURA-->
+                        <ion-col>
+                          <p>Impuesto</p>
+                        </ion-col>
+                        <ion-col class="col-align-end">
+                          <p>{{adeudoBasura.importe | currency}}</p>
+                        </ion-col>
+                      </ion-row>
+              
+                      <ion-row class="row-data" *ngIf="adeudoBasura.importe || adeudoBasura.importe >= 0"><!--IMPORTE EN BASURA-->
+                        <ion-col>
+                          <p>Importe</p>
+                        </ion-col>
+                        <ion-col class="col-align-end">
+                          <p>{{adeudoBasura.importe | currency}}</p>
+                        </ion-col>
+                      </ion-row>
+              
+                      <ion-row class="row-data" *ngIf="adeudoBasura.totalActualizaciones || adeudoBasura.totalActualizaciones >= 0">
+                        <ion-col>
+                          <p>Actualización</p>
+                        </ion-col>
+                        <ion-col class="col-align-end">
+                          <p>{{adeudoBasura.totalActualizaciones | currency}}</p>
+                        </ion-col>
+                      </ion-row>
+              
+                      <ion-row class="row-data" *ngIf="adeudoBasura.totalRecargos || adeudoBasura.totalRecargos >= 0">
+                        <ion-col>
+                          <p>Recargo</p>
+                        </ion-col>
+                        <ion-col class="col-align-end">
+                          <p>{{adeudoBasura.totalRecargos | currency}}</p>
+                        </ion-col>
+                      </ion-row>
+              
+                      <ion-row class="row-data" *ngIf="adeudoBasura.descuento || adeudoBasura.descuento >= 0">
+                        <ion-col>
+                          <p>Descuento / Recargo</p>
+                        </ion-col>
+                        <ion-col class="col-align-end">
+                          <p>{{adeudoBasura.descuento | currency}}</p>
+                        </ion-col>
+                      </ion-row>
+
+                      <ion-row class="row-data row-total-periodo" *ngIf="adeudoBasura.importeTotal || adeudoBasura.importeTotal >= 0">
+                        <ion-col>
+                          <p>Total</p>
+                        </ion-col>
+                        <ion-col class="col-align-end">
+                          <p>{{adeudoBasura.importeTotal | currency}}</p>
+                        </ion-col>
+                      </ion-row>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+
+              <ion-item class="registros-detalles item-subtotal">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <strong>SUBTOTAL</strong>
+                    </ion-col>
+                    <ion-col class="col-align-end">
+                      <strong>{{ detallePredial.totalBasura | currency }}</strong>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card button="true" (click)="toggleCardCatastral()" mode="ios">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+                Cédula Catastral
+            </ion-col>
+            <ion-col *ngIf="!detallePredial.openCatastral" class="col-align-end">
+                {{ detallePredial.cedulaCatastral | currency }}
+            </ion-col>
+            <!--<ion-col *ngIf="!detallePredial.openCatastral" class="col-align-end" size="1">
+              <ion-icon src="../../../assets/icons/_ionicons_svg_ios-arrow-down.svg"></ion-icon>
+            </ion-col>-->
+          </ion-row>
+        </ion-grid>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="detallePredial.openCatastral">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-list class="list-adeudos" lines="none">
+              <ion-item class="registros-detalles item-subtotal">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <strong>SUBTOTAL</strong>
+                    </ion-col>
+                    <ion-col class="col-align-end">
+                      <strong>{{ detallePredial.cedulaCatastral | currency }}</strong>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer class="footer-detalles">
+  <ion-grid class="totales-detalles" fixed>
+    <ion-row>
+      <ion-col>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="col-align-end"><strong class="font-larger">TOTAL A PAGAR</strong></ion-col>
+      <ion-col class="col-align-end" offset="1"><strong class="font-larger">{{ detallePredial.totalPagar | currency }}</strong></ion-col>
+      <ion-col size=".7"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+          <ion-button expand="block" (click)="pagarPredial()">Continuar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

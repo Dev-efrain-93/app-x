@@ -1,0 +1,609 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/app/tabs/refrendo"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentPopover($event)">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card mode="ios" button="true" (click)="toggleInformacionVehicular()">
+    <ion-card-header>
+        <ion-card-title>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                  Vehículo
+              </ion-col>
+              <ion-col class="col-align-end">
+                  <!--<ion-icon *ngIf="detalleRefrendo.vehiculo.open" name="close"></ion-icon>-->
+                  <ion-icon *ngIf="!detalleRefrendo.vehiculo.open" src="../../../assets/icons/_ionicons_svg_ios-arrow-down.svg"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="detalleRefrendo.vehiculo.open">
+      <ion-grid>
+        <ion-row class="row-informacion-propietario">
+          <ion-col class="col-informacion-propietario">
+            <ion-row>
+              <ion-col>
+                  <p><strong>Propietario</strong> </p>
+              </ion-col>
+            </ion-row>
+  
+            <ion-row>
+              <ion-col>
+                <p>
+                  <span>{{ detalleRefrendo.vehiculo.propietario }}</span>
+                </p>
+              </ion-col>
+            </ion-row>
+  
+            <ion-row>
+              <ion-col>
+                <p><strong>Domicilio</strong></p>
+              </ion-col>
+            </ion-row>
+  
+            <ion-row>
+              <ion-col>
+                <p>
+                  <span *ngIf="detalleRefrendo.vehiculo.calle"> CALLE {{detalleRefrendo.vehiculo.calle}}</span>
+                  <span *ngIf="detalleRefrendo.vehiculo.numeroExterior"> NUM EXT {{detalleRefrendo.vehiculo.numeroExterior}}</span>
+                  <span *ngIf="detalleRefrendo.vehiculo.numeroInterior"> NUM INT {{detalleRefrendo.vehiculo.numeroInterior}}</span>
+                  <span *ngIf="detalleRefrendo.vehiculo.colonia"> COLONIA {{detalleRefrendo.vehiculo.colonia}}</span>
+                  <span *ngIf="detalleRefrendo.vehiculo.codigoPostal"> CP {{detalleRefrendo.vehiculo.codigoPostal}}</span>
+                  <span *ngIf="detalleRefrendo.vehiculo.municipio"> MUNICIPIO {{detalleRefrendo.vehiculo.municipio}}</span>
+                  <span *ngIf="detalleRefrendo.vehiculo.ciudad"> CIUDAD {{detalleRefrendo.vehiculo.ciudad}}</span>
+                </p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                  <p><strong>No. de Serie </strong></p>
+              </ion-col>
+            </ion-row>
+  
+            <ion-row>
+              <ion-col>
+                <p><span>{{detalleRefrendo.vehiculo.serie}}</span></p>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="row-informacion-vehicular">
+          <ion-col class="col-informacion-vehicular">
+            <ion-row>
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                    <p><strong>Placa Actual </strong></p>
+                  </ion-col>
+                </ion-row>
+      
+                <ion-row>
+                  <ion-col>
+                    <p><span>{{detalleRefrendo.vehiculo.placaActual}}</span></p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+  
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                      <p><strong>Motor</strong></p>
+                  </ion-col>
+                </ion-row>
+      
+                <ion-row>
+                  <ion-col>
+                    <p><span>{{detalleRefrendo.vehiculo.motor}}</span></p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+            
+            <ion-row>
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                      <p><strong>Color </strong></p>
+                  </ion-col>
+                </ion-row>
+      
+                <ion-row>
+                  <ion-col>
+                    <p><span>{{detalleRefrendo.vehiculo.color}}</span></p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+  
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                      <p><strong>Marca</strong></p>
+                  </ion-col>
+                </ion-row>
+      
+                <ion-row>
+                  <ion-col>
+                    <p><span>{{detalleRefrendo.vehiculo.marca}}</span></p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+  
+            <ion-row>
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                      <p><strong>Clave Vehicular </strong></p>
+                  </ion-col>
+                </ion-row>
+      
+                <ion-row>
+                  <ion-col>
+                    <p><span>{{detalleRefrendo.vehiculo.claveVehicular}}</span></p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+  
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                      <p><strong>Línea</strong></p>
+                  </ion-col>
+                </ion-row>
+      
+                <ion-row>
+                  <ion-col>
+                    <p><span>{{detalleRefrendo.vehiculo.linea}}</span></p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+  
+            <ion-row>
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                      <p><strong>Pasajeros </strong></p>
+                  </ion-col>
+                </ion-row>
+      
+                <ion-row>
+                  <ion-col>
+                    <p><span>{{detalleRefrendo.vehiculo.pasajeros}}</span></p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+  
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                      <p><strong>Clase</strong></p>
+                  </ion-col>
+                </ion-row>
+      
+                <ion-row>
+                  <ion-col>
+                    <p><span>{{detalleRefrendo.vehiculo.clase}}</span></p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+  
+            <ion-row>
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                      <p><strong>Capacidad </strong></p>
+                  </ion-col>
+                </ion-row>
+      
+                <ion-row>
+                  <ion-col>
+                    <p><span>{{detalleRefrendo.vehiculo.capacidad}} KG</span></p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+  
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                      <p><strong>Modelo</strong></p>
+                  </ion-col>
+                </ion-row>
+      
+                <ion-row>
+                  <ion-col>
+                    <p><span>{{detalleRefrendo.vehiculo.modelo}}</span></p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+  
+            <ion-row>
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                      <p><strong>Placa Anterior </strong></p>
+                  </ion-col>
+                </ion-row>
+      
+                <ion-row>
+                  <ion-col>
+                    <p><span>{{detalleRefrendo.vehiculo.placaAnterior}}</span></p>
+                    <p *ngIf="detalleRefrendo.vehiculo.placaAnterior === ' '"><span>N/D</span></p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+  
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                      <p><strong>R.F.V.</strong></p>
+                  </ion-col>
+                </ion-row>
+      
+                <ion-row>
+                  <ion-col>
+                    <p><span>{{detalleRefrendo.vehiculo.rfv}}</span></p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+  
+            <ion-row>
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                      <p><strong>Propietario Anterior </strong></p>
+                  </ion-col>
+                </ion-row>
+      
+                <ion-row>
+                  <ion-col>
+                    <p><span>{{detalleRefrendo.vehiculo.propietarioAnterior}}</span></p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+  
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                      <p><strong>P.B.V.</strong></p>
+                  </ion-col>
+                </ion-row>
+      
+                <ion-row>
+                  <ion-col>
+                    <p><span>{{detalleRefrendo.vehiculo.pesoBruto | number}}</span></p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+  
+            <ion-row>
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                      <p><strong>Fecha de Factura </strong></p>
+                  </ion-col>
+                </ion-row>
+      
+                <ion-row>
+                  <ion-col>
+                    <p><span>{{detalleRefrendo.vehiculo.fechaFactura}}</span></p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+  
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                      <p><strong>Importe Factura</strong></p>
+                  </ion-col>
+                </ion-row>
+      
+                <ion-row>
+                  <ion-col>
+                    <p><span>{{detalleRefrendo.vehiculo.importeFactura | currency}}</span></p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+  
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="detalleRefrendo.tenenciaAnual.length > 0" button="true" mode="ios">
+    <ion-card-header (click)="toggleCardTenencia()">
+      <ion-card-title>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+                Refrendo
+            </ion-col>
+            <ion-col *ngIf="!detalleRefrendo.openTenencia" class="col-align-end">
+                {{ detalleRefrendo.totalTenencia | currency }}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="detalleRefrendo.openTenencia">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-list class="list-adeudos" lines="none">
+              <ion-item class="registros-detalles" *ngFor="let tenencia of detalleRefrendo.tenenciaAnual; let i = index">
+                <ion-grid>
+                  <ion-row class="item-periodo" (click)="toggleTenenciaAnual(i); $event.stopPropagation();">
+                    <ion-col>
+                      <span>DERECHOS {{tenencia.anyoFiscal}}</span>
+                    </ion-col>
+                    <ion-col class="col-align-end" *ngIf="!tenencia.open">
+                        {{tenencia.importeTotal | currency}}
+                    </ion-col>
+                    <ion-col class="col-align-end" size="1">
+                        <ion-icon src="../../../assets/icons/_ionicons_svg_ios-arrow-forward.svg" *ngIf="!tenencia.open"></ion-icon>
+                        <ion-icon src="../../../assets/icons/_ionicons_svg_ios-arrow-down.svg" *ngIf="tenencia.open"></ion-icon>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row *ngIf="tenencia.open">
+                    <ion-col>
+                        <ion-row class="row-data" *ngIf="tenencia.importeTenencia && tenencia.importeTenencia >= 0">
+                          <ion-col>
+                            <p>Tenencia</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{tenencia.importeTenencia | currency}}</p>
+                          </ion-col>
+                        </ion-row>
+                
+                        <ion-row class="row-data" *ngIf="tenencia.recargoMontoTenencia && tenencia.recargoMontoTenencia >= 0">
+                          <ion-col>
+                            <p>Recargo Tenencia</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{tenencia.recargoMontoTenencia | currency}}</p>
+                          </ion-col>
+                        </ion-row>
+                
+                        <ion-row class="row-data" *ngIf="tenencia.actualizacionMontoTenencia && tenencia.actualizacionMontoTenencia >= 0">
+                          <ion-col>
+                            <p>Actualización Tenencia</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{tenencia.actualizacionMontoTenencia | currency}}</p>
+                          </ion-col>
+                        </ion-row>
+                
+                        <ion-row class="row-data" *ngIf="tenencia.importeDerechoPlaca && tenencia.importeDerechoPlaca >= 0">
+                          <ion-col>
+                            <p>Derecho</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{tenencia.importeDerechoPlaca | currency}}</p>
+                          </ion-col>
+                        </ion-row>
+                
+                        <ion-row class="row-data" *ngIf="tenencia.recargoDerechoPlaca && tenencia.recargoDerechoPlaca >= 0">
+                          <ion-col>
+                            <p>Recargo Derecho</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{tenencia.recargoDerechoPlaca | currency}}</p>
+                          </ion-col>
+                        </ion-row>
+                
+                        <ion-row class="row-data" *ngIf="tenencia.actualizacionDerechoPlaca && tenencia.actualizacionDerechoPlaca >= 0">
+                          <ion-col>
+                            <p>Actualización Derecho</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{tenencia.actualizacionDerechoPlaca | currency}}</p>
+                          </ion-col>
+                        </ion-row>
+
+                        <ion-row class="row-data" *ngIf="tenencia.montoHonorarios && tenencia.montoHonorarios >= 0">
+                          <ion-col>
+                            <p>Honorarios</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{tenencia.montoHonorarios | currency}}</p>
+                          </ion-col>
+                        </ion-row>
+
+                        <ion-row class="row-data" *ngIf="tenencia.montoMulta && tenencia.montoMulta >= 0">
+                          <ion-col>
+                            <p>Multa</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{tenencia.montoMulta | currency}}</p>
+                          </ion-col>
+                        </ion-row>
+
+                        <ion-row class="row-data row-total-periodo" *ngIf="tenencia.importeTotal && tenencia.importeTotal >= 0">
+                          <ion-col>
+                            <p>Total</p>
+                          </ion-col>
+                          <ion-col class="col-align-end">
+                            <p>{{tenencia.importeTotal | currency}}</p>
+                          </ion-col>
+                        </ion-row>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+
+              <ion-item class="registros-detalles item-subtotal">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <strong>SUBTOTAL</strong>
+                    </ion-col>
+                    <ion-col class="col-align-end">
+                      <strong>{{ detalleRefrendo.totalTenencia | currency }}</strong>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="detalleRefrendo.infracciones.length > 0" button="true" mode="ios">
+    <ion-card-header (click)="toggleCardInfracciones()"> 
+      <ion-card-title>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+                Infracciones
+            </ion-col>
+            <ion-col *ngIf="!detalleRefrendo.openInfracciones" class="col-align-end">
+                {{ detalleRefrendo.totalInfracciones | currency }}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="detalleRefrendo.openInfracciones">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-list class="list-adeudos" lines="none">
+              <ion-item class="registros-detalles" *ngFor="let infraccion of detalleRefrendo.infracciones; let i = index">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <p>Infracción {{infraccion.numeroInfraccion}}</p>
+                      <p class="info-text">{{infraccion.fecha | date: 'MMM d, y, h:mm:ss a'}}</p>
+                    </ion-col>
+                    <ion-col class="col-align-end">
+                      <p>{{ infraccion.montoInfraccion | currency }}</p>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+
+              <ion-item class="registros-detalles item-subtotal">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <strong>SUBTOTAL</strong>
+                    </ion-col>
+                    <ion-col class="col-align-end">
+                      <strong>{{ detalleRefrendo.totalInfracciones | currency }}</strong>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="detalleRefrendo.aplicaDonativo" button="true" (click)="toggleCardDonativo()" mode="ios">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+                Asistencia Social
+            </ion-col>
+            <ion-col *ngIf="!detalleRefrendo.openDonativo" class="col-align-end">
+                {{ detalleRefrendo.donativo | currency }}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="detalleRefrendo.openDonativo">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-row>
+              <ion-avatar>
+                <img src="../../../assets/img/dif-2015-2021.gif">
+              </ion-avatar>
+              <ion-avatar>
+                <img src="../../../assets/img/cruz-roja.jpg">
+              </ion-avatar>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-list class="list-adeudos" lines="none">
+              <ion-item class="registros-detalles">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <ion-text>
+                        <p class="info-text">Con su donativo puede salvar la vida de quien mas lo necesite. Con su apoyo podremos prestar más servicios a la comunidad cuando se necesite o se presente algún desastre.</p>
+                      </ion-text>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+              <ion-item class="registros-detalles item-subtotal">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <strong>SUBTOTAL</strong>
+                    </ion-col>
+                    <ion-col class="col-align-end">
+                      <strong>{{ detalleRefrendo.donativo | currency }}</strong>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer class="footer-detalles">
+  <ion-grid class="totales-detalles" fixed>
+    <ion-row>
+      <ion-col>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="col-align-end"><strong class="font-larger">TOTAL A PAGAR</strong></ion-col>
+      <ion-col class="col-align-end" offset="1"><strong class="font-larger">{{ detalleRefrendo.total | currency }}</strong></ion-col>
+      <ion-col size=".7"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+          <ion-button expand="block" (click)="pagarRefrendo()">Continuar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

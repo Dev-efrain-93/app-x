@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Línea de captura cerrada</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="grid-full-height">
+    <ion-row class="row-full-height" justify-content-center align-items-center>
+
+      <ion-item *ngIf="">
+        <ion-input type="text" placeholder="Linea de captura cerrada" [(ngModel)]="qrData"></ion-input>
+      </ion-item>
+
+      <ion-card class="qrCard" mode="ios">
+
+        <div class="scene scene--card">
+          <div class="card">
+            <div class="card__face card__face--front">
+              <div class="qrcode">
+                <qr-code [value]="qrData" [size]="200" [canvas]="true" class="ion-padding"></qr-code>
+                <h5>{{detalleRefrendo.lcc}}</h5>
+              </div>
+            </div>
+            <div class="card__face card__face--back">
+              <div class="barcode">
+                <ngx-barcode [bc-value]="qrData" [bc-display-value]="false" [bc-element-type]="elementType"></ngx-barcode>
+                <h5>{{detalleRefrendo.lcc}}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ion-card-content>
+          <br *ngIf="isQr">
+          <ion-grid>
+            <ion-row>
+              <ion-col class="col-align-center">
+                  <ion-button color="tertiary" (click)="flipCard()">
+                    <span *ngIf="isQr">Ver código de barras</span>
+                    <span *ngIf="!isQr">Ver código QR</span>
+                    <!--<ion-icon slot="icon-only" src="../../../assets/icons/rotate-z.svg"></ion-icon>-->
+                  </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <br>
+          <p class="info-text">Acude a un módulo de pago y presenta este código para agilizar el pago de tu refrendo ó paga directamente desde aquí.</p>
+          <br>
+        </ion-card-content>
+      </ion-card>
+
+      <!--Validar código QR-->
+      <ion-card *ngIf="" mode="ios">
+        <ion-card-header>
+          <ion-button expand="block" (click)="scanCodeQR()">
+            <ion-icon name="qr-scanner" slot="start"></ion-icon>
+            Escanear QR
+          </ion-button>
+        </ion-card-header>
+        <ion-card-content *ngIf="scannedCode">
+          El código escaneado es: {{ scannedCode }}
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" (click)="pagarRefrendo()">
+            Pagar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="">
+        <ion-col>
+          <ion-button expand="block" (click)="downloadCode()" *ngIf="qrData">
+            Descargar código
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

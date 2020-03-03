@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Consultar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card mode="ios">
+    <ion-card-header>
+      <ion-card-title>Refrendo Vehicular</ion-card-title>
+      <ion-row>
+        <ion-col>
+          <ion-text><p class="info-text">Ingrese al menos uno de los siguientes datos</p></ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <ion-card-content class="card-content-refrendo">
+      <ion-grid>
+        
+        <ion-row>
+          <ion-col>
+            <ion-list class="form-list" lines="full">
+              <form [formGroup]="formularioConsultaRefrendo">
+
+                <ion-item>
+                  <ion-label color="medium" position="floating">Placa</ion-label>
+                  <ion-input type="text" formControlName="placa" class="form-control" clearInput placeholder=""></ion-input>
+                  <ion-icon color="medium" src="../../../assets/icons/counter.svg" slot="start"></ion-icon>
+                </ion-item>
+                
+                <ion-item lines="none" class="validation-errors" *ngIf="!formularioConsultaRefrendo.controls.placa.valid && (formularioConsultaRefrendo.controls.placa.dirty || enviado)">
+                    <ion-icon size="small" color="danger" name="information-circle" slot="start" *ngIf="formularioConsultaRefrendo.controls.placa.errors.pattern"></ion-icon><p class="error-message" *ngIf="formularioConsultaRefrendo.controls.placa.errors.pattern">Ingrese una placa de vehículo válida</p>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label color="medium" position="floating">No. de Serie</ion-label>
+                  <ion-input type="text" formControlName="serie" class="form-control" clearInput placeholder=""></ion-input>
+                  <ion-icon color="medium" src="../../../assets/icons/numeric.svg" slot="start"></ion-icon>
+                </ion-item>
+                
+                <ion-item lines="none" class="validation-errors" *ngIf="!formularioConsultaRefrendo.controls.serie.valid && (formularioConsultaRefrendo.controls.serie.dirty || enviado)">
+                    <ion-icon size="small" color="danger" name="information-circle" slot="start" *ngIf="formularioConsultaRefrendo.controls.serie.errors.pattern"></ion-icon><p class="error-message" *ngIf="formularioConsultaRefrendo.controls.serie.errors.pattern">Ingrese un número de serie válido</p>
+                </ion-item>
+
+                <ion-item lines="none" style="height:10px;">
+
+                  </ion-item>
+              </form>
+              </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+    <ion-row class="cardfooter" (click)="resetForm()">
+      <ion-col class="col-align-center">
+            <p class="p-text-primary">Limpiar</p>
+      </ion-col>
+    </ion-row>
+    <!--<img src="../../../assets/img/a1486213390617.562732ef5e8c1.jpeg" style="opacity: 0.1;">-->
+  </ion-card>
+
+  <ion-card *ngIf="consultasRefrendo.length > 0" mode="ios">
+    <ion-card-header>
+      <ion-card-title>Consultas recientes</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item *ngFor="let consulta of consultasRefrendo" detail>
+          <ion-grid>
+            <!--<ion-row (click)="ejecutarConsultaReciente(consulta)">-->
+            <ion-row (click)="ejecutarConsultaRecienteFake(consulta)">
+              <ion-col class="align-self-center">
+                <p *ngIf="consulta.data.vehiculo.placaActual"><strong>Placa: </strong> {{consulta.data.vehiculo.placaActual}}</p>
+                <p *ngIf="consulta.data.vehiculo.serie"><strong>No. de Serie: </strong> {{consulta.data.vehiculo.serie}}</p>
+                <p class="medium-color-text">{{consulta.date | date: 'MMM d, y, h:mm:ss a'}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    <ion-row class="cardfooter" (click)="removerConsultasRefrendoRecientes()">
+      <ion-col class="col-align-center">
+            <p class="p-text-primary">Eliminar consultas recientes</p>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+            <!--<ion-button (click)="consultarRefrendo()" expand="block" [disabled]="!formularioConsultaRefrendo.valid" >Buscar</ion-button>-->
+            <!--<ion-button (click)="consultarRefrendo()" expand="block">Buscar</ion-button>-->
+            <ion-button (click)="consultaRefrendoFake()" expand="block">Buscar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

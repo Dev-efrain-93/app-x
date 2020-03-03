@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle periódo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{detalleAdeudo.anyoFiscal}}</ion-card-subtitle>
+      <ion-card-title>{{concepto}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row class="row-data" *ngIf="detalleAdeudo.baseGravable || detalleAdeudo.baseGravable >= 0">
+          <ion-col>
+            <p><strong>Base Gravable</strong></p>
+          </ion-col>
+          <ion-col class="col-align-end">
+            <p>{{detalleAdeudo.baseGravable | currency}}</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="row-data" *ngIf="detalleAdeudo.descuentoBaseGravable || detalleAdeudo.descuentoBaseGravable >= 0">
+          <ion-col>
+            <p><strong>% Descuento Base Gravable</strong></p>
+          </ion-col>
+          <ion-col class="col-align-end">
+            <p>{{detalleAdeudo.descuentoBaseGravable | currency}}</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="row-data" *ngIf="detalleAdeudo.impuesto || detalleAdeudo.impuesto >= 0"><!--IMPUESTO EN PREDIAL-->
+          <ion-col>
+            <p><strong>Impuesto</strong></p>
+          </ion-col>
+          <ion-col class="col-align-end">
+            <p>{{detalleAdeudo.impuesto | currency}}</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="row-data" *ngIf="detalleAdeudo.importe || detalleAdeudo.importe >= 0"><!--IMPUESTO EN BASURA-->
+          <ion-col>
+            <p><strong>Impuesto</strong></p>
+          </ion-col>
+          <ion-col class="col-align-end">
+            <p>{{detalleAdeudo.importe | currency}}</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="row-data" *ngIf="detalleAdeudo.impuestoPagar || detalleAdeudo.impuestoPagar >= 0"><!--IMPORTE EN PREDIAL-->
+          <ion-col>
+            <p><strong>Importe</strong></p>
+          </ion-col>
+          <ion-col class="col-align-end">
+            <p>{{detalleAdeudo.impuestoPagar | currency}}</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="row-data" *ngIf="detalleAdeudo.importe || detalleAdeudo.importe >= 0"><!--IMPORTE EN BASURA-->
+          <ion-col>
+            <p><strong>Importe</strong></p>
+          </ion-col>
+          <ion-col class="col-align-end">
+            <p>{{detalleAdeudo.importe | currency}}</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="row-data" *ngIf="detalleAdeudo.totalActualizaciones || detalleAdeudo.totalActualizaciones >= 0">
+          <ion-col>
+            <p><strong>Actualización</strong></p>
+          </ion-col>
+          <ion-col class="col-align-end">
+            <p>{{detalleAdeudo.totalActualizaciones | currency}}</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="row-data" *ngIf="detalleAdeudo.totalRecargos || detalleAdeudo.totalRecargos >= 0">
+          <ion-col>
+            <p><strong>Recargo</strong></p>
+          </ion-col>
+          <ion-col class="col-align-end">
+            <p>{{detalleAdeudo.totalRecargos | currency}}</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="row-data" *ngIf="detalleAdeudo.descuento || detalleAdeudo.descuento >= 0">
+          <ion-col>
+            <p><strong>Descuento / Recargo</strong></p>
+          </ion-col>
+          <ion-col class="col-align-end">
+            <p>{{detalleAdeudo.descuento | currency}}</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="row-data cardfooter" *ngIf="detalleAdeudo.importeTotal || detalleAdeudo.importeTotal >= 0">
+          <ion-col>
+            <p><strong>TOTAL</strong></p>
+          </ion-col> 
+          <ion-col class="col-align-end">
+            <p><strong>{{detalleAdeudo.importeTotal | currency}}</strong></p>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-card-content>
+    
+  </ion-card>

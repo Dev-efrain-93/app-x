@@ -1,0 +1,54 @@
+.encabezado-detalle {
+    font-size: small;
+}
+
+.totales-detalles {
+    font-size: 14px;;
+}
+
+.col-align-end {
+    text-align: end;
+}
+
+.col-align-center {
+    text-align: center;
+}
+
+.personalized-heigh {
+    max-height: 35px;
+}
+
+.registros-detalles {
+    font-size: 14px;
+    --padding-start: 0px;
+}
+
+.footer-detalles {
+    background: var(--ion-color-light);
+}
+
+.font-larger {
+    font-size: larger;
+    color: var(--ion-color-dark);
+}
+
+.list-adeudos {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.item-subtotal {
+    border-top: solid 1px #efefef69;
+}
+
+.item-periodo {
+    background: var(--ion-color-light);
+}
+
+.row-total-periodo {
+    font-weight: 600;
+}
+
+.col-informacion-predio {
+    padding: 0px;
+}

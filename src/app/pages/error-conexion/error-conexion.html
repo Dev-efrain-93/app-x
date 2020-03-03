@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-button (click)="cerrar()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Error de conexión
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrar()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card class="col-align-center">
+    <img src="../../../assets/img/no_internet-01_2x.png">
+    <ion-card-header>
+      <ion-card-title>
+        No se encontró una conexión de red
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid fixed="true">
+        <ion-row class="align-items-stretch">
+          <ion-col class="align-self-stretch fadeIn" class="col-align-start">
+            <p>Algo salió mal, por favor revisa tu configuración de red e inténtalo de nuevo.</p>
+
+            <ul>
+              <li><p>Verifica que tus datos móviles estén habilitados,</p></li>
+              <li><p>O estar conectado a una red inhalámbrica.</p></li>
+            </ul>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-list lines="none">
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+    <ion-row>
+      <ion-col class="col-align-center">
+        <ion-button fill="solid" color="danger" (click)="cerrar()">
+          Continuar sin conexión
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>
+

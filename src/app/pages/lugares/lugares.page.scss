@@ -1,0 +1,21 @@
+#map_canvas {
+    height: 100%;
+}
+
+.grid-bottom-page {
+    position: absolute;
+    bottom: -20px;
+    //bottom: 20px;
+    width: 100%;
+}
+
+.card-lugar {
+    --background: var(--ion-color-light) !important;
+    text-align: start;
+    width: 100%;
+    //padding: 0 0 15px 0;
+}
+
+/*.slide-lugar {
+    margin-bottom: 10px !important;
+}*/

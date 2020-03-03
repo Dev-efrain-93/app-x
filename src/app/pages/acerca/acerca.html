@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Acerca de...</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentPopover($event)">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="about-header">
+    <img class="bounce" src="assets/img/logo_sefin.png" alt="Logo SEFIN Móvil">
+  </div>
+  <div class="about-info">
+    <h4 class="ion-padding-start">{{ appName }}</h4>
+    <h6 class="version-number"><small>v</small>{{ versionNumber }}</h6>
+
+    <ion-list lines="none">
+      <ion-item>
+        <ion-icon name="contact" slot="start"></ion-icon>
+        <ion-label position="stacked info-label">Desarrollador</ion-label>
+        <p>Dirección de Informática</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="briefcase" slot="start"></ion-icon>
+        <ion-label position="stacked info-label">Organización<nav></nav></ion-label>
+        <p>
+          Secretaría de Finanzas
+          <br>
+          Gobierno del Estado de Campeche
+        </p>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon name="mail" slot="start"></ion-icon>
+          <ion-label position="stacked info-label">Contacto<nav></nav></ion-label>
+          <p>
+            soporte.sefin@gmail.com
+          </p>
+        </ion-item>
+    </ion-list>
+
+    <p class="ion-padding-start ion-padding-end about-description">
+      Realiza el pago de tus impuestos estés donde estés a la hora que desees, o consulta información acerca de los lugares habilitados para el pago de tus servicios.
+    </p>
+    <br>
+    <ion-button fill="solid" color="primary" (click)="openTutorial()">
+      Ver tutorial
+    </ion-button>
+    <br>
+  </div>
+</ion-content>

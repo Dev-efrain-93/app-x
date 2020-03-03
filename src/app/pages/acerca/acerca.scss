@@ -1,0 +1,78 @@
+ion-content {
+  --padding-bottom: 25px;
+}
+
+.about-header {
+  background-color: #222;
+  padding: 16px;
+  width: 100%;
+  height: 30%;
+  text-align: center;
+}
+
+.about-header img {
+  max-height: 75%;
+  margin-top:5%;
+}
+
+.about-info {
+  text-align: center;
+}
+
+.about-info p {
+  color: var(--ion-color-dark);
+  text-align: left;
+}
+
+.about-info ion-icon {
+  margin-inline-end: 32px;
+}
+
+.ios .about-info {
+  text-align: center;
+}
+
+.about-description {
+  text-align: justify;
+}
+
+.info-label {
+  color: rgb(100, 100, 100); 
+}
+
+.version-number {
+  color: rgb(100, 100, 100); 
+  margin: -10px 0 20px 0;
+  text-align: center;
+}
+
+.ion-padding-start {
+  text-align: center;
+}
+
+@keyframes bounceIn{
+  0%{
+    opacity: 0;
+    transform: scale(0.3) translate3d(0,0,0);
+  }
+  50%{
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80%{
+    opacity: 1;
+    transform: scale(0.89);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1) translate3d(0,0,0);
+  }
+}
+
+.bounce {
+  opacity: 0;
+  animation-name: bounceIn;
+  animation-duration: 450ms;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}

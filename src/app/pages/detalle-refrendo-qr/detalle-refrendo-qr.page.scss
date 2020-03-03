@@ -1,0 +1,58 @@
+.grid-full-height {
+
+    height: 100%;
+}
+
+.row-full-height {
+    height: 100%;
+}
+
+.info-text {
+    font-size: medium;
+}
+
+.qrcode {
+    text-align: center !important;
+    padding: 10px !important;
+}
+
+.barcode {
+    text-align: center !important;
+    padding: 10px !important;
+}
+
+/*Flip div*/
+
+.scene {
+    height: 200px;
+    margin: 40px 0;
+    perspective: 600px;
+}
+  
+.card {
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform-origin: center right;
+    transition: transform 1s;
+}
+
+.card.is-flipped {
+    transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card__face {
+    position: absolute;
+    width: 100%;
+    height: 225px;
+    backface-visibility: hidden;
+}
+
+.card__face--front {
+    background: #fff;
+}
+
+.card__face--back {
+    background: #fff;
+    transform: rotateY(180deg);
+}

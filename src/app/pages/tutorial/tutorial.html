@@ -1,0 +1,23 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color='light' (click)="startApp()" [hidden]="!showSkip">
+        Omitir
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [color]="colorTheme" class="tutorial-content" fullscreen>
+  <ion-slides [options]="slideOptions" class="tutorial-slides" #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager="true">
+    <ion-slide class="bounce" *ngFor="let slide of tutorialSlideItems; let i=index">
+      <img class="slide-image" [src]="slide.image"/>
+      <h2 class="slide-title" [innerHtml]="slide.title"></h2>
+      <p class="slide-description" [innerHtml]="slide.description"></p>
+      <ion-button class="bounce" fill="solid" color="primary" (click)="startApp()" *ngIf="i == tutorialSlideItems.length - 1">
+        Continuar
+      </ion-button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "ionic-sefin-app",
+  "type": "angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
