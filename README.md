@@ -1,64 +1,36 @@
-# Ionic Angular Conference Application
+# Ionic Angular App X
 
-This application is purely a kitchen-sink demo of the Ionic Framework and Angular.
-
-**There is not an actual Ionic Conference at this time.** This project is just to show off Ionic components in a real-world application. Please go through the steps in [CONTRIBUTING](https://github.com/ionic-team/ionic-conference-app/blob/master/.github/CONTRIBUTING.md) before submitting an issue.
+Aplicación de pagos desarrollado en Ionic Framework con Angular.
 
 
-## Table of Contents
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [App Preview](#app-preview)
-- [Deploying](#deploying)
+## Tabla de Contenido
+- [Ejecución](#ejecución)
+- [Despliegue](#despliegue)
   - [Progressive Web App](#progressive-web-app)
   - [Android](#android)
   - [iOS](#ios)
 
 
-## Getting Started
+## Ejecución
 
-* [Download the installer](https://nodejs.org/) for Node.js 6 or greater.
-* Install the ionic CLI globally: `npm install -g ionic`
-* Clone this repository: `git clone https://github.com/ionic-team/ionic-conference-app.git`.
-* Run `npm install` from the project root.
-* Run `ionic serve` in a terminal from the project root.
-* Profit. :tada:
-
-_Note: See [How to Prevent Permissions Errors](https://docs.npmjs.com/getting-started/fixing-npm-permissions) if you are running into issues when trying to install packages globally._
-
-## Contributing
-See [CONTRIBUTING.md](https://github.com/ionic-team/ionic-conference-app/blob/master/.github/CONTRIBUTING.md) :tada::+1:
+* [Descarga de instalador](https://nodejs.org/) para Node.js 6 o superior.
+* Instalar globalmente el CLI de ionic: `npm install -g ionic`
+* Clonar repositorio: `git clone https://github.com/ionic-team/ionic-conference-app.git`.
+* Ejecutar `npm install` desde la raíz del proyecto.
+* Ejecutar `ionic serve` en la terminar desde la raíz del proyecto.
 
 
-## App Preview
-
-All app preview screenshots were taken by running `ionic serve --lab` on a retina display.
-
-- [Schedule Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/app/pages/schedule/schedule.html)
-
-  <img src="resources/screenshots/SchedulePage.png" alt="Schedule">
-
-
-- [About Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/app/pages/about/about.html)
-
-  <img src="resources/screenshots/AboutPage.png" alt="Schedule">
-
-
-- To see more images of the app, check out the [screenshots directory](https://github.com/ionic-team/ionic-conference-app/tree/master/resources/screenshots)!
-
-
-## Deploying
+## Despliegue
 
 ### Progressive Web App
 
-1. Un-comment [these lines](https://github.com/ionic-team/ionic2-app-base/blob/master/src/index.html#L21)
-2. Run `npm run ionic:build --prod`
-3. Push the `www` folder to your hosting service
+1. Ejecutar `npm run ionic:build --prod`
+2. Colocar la carpeta `www` en servicio de host
 
 ### Android
 
-1. Run `ionic cordova run android --prod`
+1. Ejecutar `ionic cordova run android --prod`
 
 ### iOS
 
-1. Run `ionic cordova run ios --prod`
+1. Ejecutar `ionic cordova run ios --prod`
