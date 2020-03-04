@@ -7,7 +7,7 @@
     <author email="informatica.sefin@gmail.com" href="https://www.contribunet.campeche.gob.mx">
         Subdirección de Sistemas de la Dirección de Informática de la Secretaría de Finanzas del Estado de Campeche.
     </author>
-    <content original-src="index.html" src="http://localhost:8100" />
+    <content original-src="index.html" src="http://172.20.13.24:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -15,7 +15,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <allow-navigation href="http://localhost:8100" sessionid="41c959e5" />
+    <allow-navigation href="http://172.20.13.24:8100" sessionid="3ef0ac8b" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
