@@ -1,6 +1,6 @@
 # Ionic Angular App X
 
-Aplicación de pagos desarrollado en Ionic Framework con Angular.
+Aplicación con pequeño flujo desarrollado en Ionic Framework con Angular.
 
 
 ## Tabla de Contenido
