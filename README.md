@@ -15,7 +15,7 @@ Aplicación con pequeño flujo desarrollado en Ionic Framework con Angular.
 
 * [Descargar](https://nodejs.org/) e instalar Node.js 6 o superior.
 * Instalar globalmente el CLI de ionic: `npm install -g ionic`
-* Clonar repositorio: `git clone https://github.com/ionic-team/ionic-conference-app.git`.
+* Clonar repositorio: `git clone https://github.com/Dev-efrain-93/app-x.git`.
 * Ejecutar `npm install` desde la raíz del proyecto.
 * Ejecutar `ionic serve` en la terminar desde la raíz del proyecto.
 
