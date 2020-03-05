@@ -39,7 +39,7 @@ const routes: Routes = [
           },
           {
             path: 'pago-predial',
-            loadChildren: () => import('../pago-predial/pago-predial.module').then(m => m.PagoPredialPageModule)
+            loadChildren: () => import('../pago-agua-potable/pago-agua-potable.module').then(m => m.PagoAguaPotablePageModule)
           }
         ]
       },
