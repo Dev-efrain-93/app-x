@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.sefin.app.movil" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>SEFIN Móvil</name>
+<widget id="com.siapa.app.movil" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name />
     <description>
-        Aplicación móvil para servicios de la Secretaría de Finanzas del Estado de Campeche.
+        Aplicación móvil para pago de servicio de agua potable.
     </description>
-    <author email="informatica.sefin@gmail.com" href="https://www.contribunet.campeche.gob.mx">
-        Subdirección de Sistemas de la Dirección de Informática de la Secretaría de Finanzas del Estado de Campeche.
+    <author email="efraindsk@gmail.com" href="https://github.com/Dev-efrain-93/">
+        Efrain Tun Uicab
     </author>
-    <content original-src="index.html" src="http://172.20.13.24:8100" />
+    <content original-src="index.html" src="http://localhost:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -15,7 +15,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <allow-navigation href="http://172.20.13.24:8100" sessionid="3ef0ac8b" />
+    <allow-navigation href="http://localhost:8100" sessionid="1b32c22d" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />

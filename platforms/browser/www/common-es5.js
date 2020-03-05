@@ -863,67 +863,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                 tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"]])
             ], LoadingService);
             /***/ 
-        }),
-        /***/ "./src/app/services/refrendo.service.ts": 
-        /*!**********************************************!*\
-          !*** ./src/app/services/refrendo.service.ts ***!
-          \**********************************************/
-        /*! exports provided: RefrendoService */
-        /***/ (function (module, __webpack_exports__, __webpack_require__) {
-            "use strict";
-            __webpack_require__.r(__webpack_exports__);
-            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RefrendoService", function () { return RefrendoService; });
-            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-            /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-            /* harmony import */ var _app_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../app.config */ "./src/app/app.config.ts");
-            /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-            /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-            var httpOptions = {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-                    'Content-Type': 'application/json'
-                })
-            };
-            var appConfig = Object(_app_config__WEBPACK_IMPORTED_MODULE_3__["AppConfig"])();
-            var RefrendoService = /** @class */ (function () {
-                function RefrendoService(http) {
-                    this.http = http;
-                }
-                /**
-                 * Consultar refrendo vehicular
-                 * @param placa Placa del vehiculo
-                 * @param serie Numero de serie del vehiculo
-                 */
-                RefrendoService.prototype.obtenerRefrendoVehicular = function (placa, serie) {
-                    return this.http.get(appConfig.apiOrigin + "sit-movil/tenencia?placa=" + placa + "&serie=" + serie, httpOptions)
-                        .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.fnError));
-                };
-                /**
-                * FnError
-                * @param err
-                */
-                RefrendoService.prototype.fnError = function (err) {
-                    var message = '';
-                    if (err.error instanceof ErrorEvent) {
-                        message = err.error.message;
-                    }
-                    else {
-                        message = 'Servicio no disponible. Intente más tarde';
-                    }
-                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["throwError"])(message);
-                };
-                return RefrendoService;
-            }());
-            RefrendoService.ctorParameters = function () { return [
-                { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
-            ]; };
-            RefrendoService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-                    providedIn: 'root'
-                }),
-                tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
-            ], RefrendoService);
-            /***/ 
         })
     }]);
 //# sourceMappingURL=common-es2015.js.map
