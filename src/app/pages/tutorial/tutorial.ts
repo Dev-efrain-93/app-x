@@ -15,7 +15,7 @@ export class TutorialPage {
   showSkip = true;
   colorTheme= "primary";
   //colorStatusBar= "#3880ff";//primary
-  colorStatusBar = "#00A680"; //primary
+  colorStatusBar = "#00a6fe;"; //primary
 
   slideOptions = {
     initialSlide: 0,
@@ -39,7 +39,7 @@ export class TutorialPage {
         description: "Realiza el pago de tus <b>impuestos</b> estés donde estés, conectándote desde tu dispositivo móvil.",
         image: "assets/img/ica-slidebox-img-1.png",
         color: "primary",
-        hexColor: "#00A680"
+        hexColor: "#00a6fe;"
       },
       {
         title: "¡Que puedes hacer?",
@@ -71,7 +71,7 @@ export class TutorialPage {
       .then(() => this.storage.set('ion_did_tutorial', true));
 
     //this.colorStatusBar = "#3880ff";//primary
-    this.colorStatusBar = "#00A680"; //primary
+    this.colorStatusBar = "#00a6fe;"; //primary
     this.statusBar.backgroundColorByHexString(this.colorStatusBar);
     this.statusBar.styleLightContent();
   }

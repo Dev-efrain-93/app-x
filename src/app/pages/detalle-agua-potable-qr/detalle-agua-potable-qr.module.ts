@@ -2,17 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
 import { IonicModule } from '@ionic/angular';
+import { DetalleAguaPotableQrPage } from './detalle-agua-potable-qr.page';
 
-import { DetalleRefrendoQrPage } from './detalle-refrendo-qr.page';
 import { QRCodeModule } from 'angular2-qrcode';
 import { NgxBarcodeModule } from 'ngx-barcode';
 
 const routes: Routes = [
   {
     path: '',
-    component: DetalleRefrendoQrPage
+    component: DetalleAguaPotableQrPage
   }
 ];
 
@@ -25,6 +24,6 @@ const routes: Routes = [
     QRCodeModule,
     NgxBarcodeModule
   ],
-  declarations: [DetalleRefrendoQrPage]
+  declarations: [DetalleAguaPotableQrPage]
 })
-export class DetalleRefrendoQrPageModule {}
+export class DetalleAguaPotableQrPageModule {}

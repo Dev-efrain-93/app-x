@@ -23,44 +23,23 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () => import('../predial/predial.module').then(m => m.PredialModule)
+            loadChildren: () => import('../agua-potable/agua-potable.module').then(m => m.AguaPotableModule)
           },
           {
             path: 'detalle-predial',
-            loadChildren: () => import('../detalle-predial/detalle-predial.module').then(m => m.DetallePredialModule)
+            loadChildren: () => import('../detalle-agua-potable/detalle-agua-potable.module').then(m => m.DetalleAguaPotableModule)
           },
           {
             path: 'detalle-predial-qr',
-            loadChildren: () => import('../detalle-predial-qr/detalle-predial-qr.module').then(m => m.DetallePredialQrPageModule)
+            loadChildren: () => import('../detalle-agua-potable-qr/detalle-agua-potable-qr.module').then(m => m.DetalleAguaPotableQrPageModule)
           },
           {
             path: 'detalle-predial-detalle',
-            loadChildren: () => import('../detalle-predial-detalle/detalle-predial-detalle.module').then(m => m.DetallePredialDetallePageModule)
+            loadChildren: () => import('../detalle-agua-potable-detalle/detalle-agua-potable-detalle.module').then(m => m.DetalleAguaPotableDetallePageModule)
           },
           {
             path: 'pago-predial',
             loadChildren: () => import('../pago-predial/pago-predial.module').then(m => m.PagoPredialPageModule)
-          }
-        ]
-      },
-      {
-        path: 'refrendo',
-        children: [
-          {
-            path: '',
-            loadChildren: () => import('../refrendo/refrendo.module').then(m => m.RefrendoPageModule)
-          },
-          {
-            path: 'detalle-refrendo',
-            loadChildren: () => import('../detalle-refrendo/detalle-refrendo.module').then(m => m.DetalleRefrendoPageModule)
-          },
-          {
-            path: 'detalle-refrendo-qr',
-            loadChildren: () => import('../detalle-refrendo-qr/detalle-refrendo-qr.module').then(m => m.DetalleRefrendoQrPageModule)
-          },
-          {
-            path: 'pago-refrendo',
-            loadChildren: () => import('../pago-refrendo/pago-refrendo.module').then(m => m.PagoRefrendoPageModule)
           }
         ]
       },

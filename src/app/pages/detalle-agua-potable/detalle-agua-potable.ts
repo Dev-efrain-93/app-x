@@ -4,15 +4,15 @@ import { Config, ActionSheetController, Platform, PopoverController } from '@ion
 import { Storage } from '@ionic/storage';
 import { PredialService } from '../../services/predial.service';
 
-import { DetallePredialPopoverPage } from '../detalle-predial-popover/detalle-predial-popover';
+import { DetalleAguaPotablePopoverPage } from '../detalle-agua-potable-popover/detalle-agua-potable-popover';
 
 
 @Component({
-  selector: 'page-detalle-predial',
-  templateUrl: 'detalle-predial.html',
-  styleUrls: ['./detalle-predial.scss'],
+  selector: 'page-detalle-agua-potable',
+  templateUrl: 'detalle-agua-potable.html',
+  styleUrls: ['./detalle-agua-potable.scss'],
 })
-export class DetallePredialPage {
+export class DetalleAguaPotablePage {
   ios: boolean;
   detallePredial: any;
   tiposUsoSuelo: any[];
@@ -98,7 +98,7 @@ export class DetallePredialPage {
 
   async presentPopover(event: Event) {
     const popover = await this.popoverController.create({
-      component: DetallePredialPopoverPage,
+      component: DetalleAguaPotablePopoverPage,
       componentProps: { detallePredial: this.detallePredial },
       event: event
     });

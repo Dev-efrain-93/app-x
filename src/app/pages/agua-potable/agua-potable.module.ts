@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
-import { PredialPage } from './predial';
-import { PredialPageRoutingModule } from './predial-routing.module';
+import { AguaPotablePage } from './agua-potable';
+import { AguaPotablePageRoutingModule } from './agua-potable-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -11,8 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     IonicModule,
     ReactiveFormsModule,
-    PredialPageRoutingModule
+    AguaPotablePageRoutingModule
   ],
-  declarations: [PredialPage],
+  declarations: [AguaPotablePage],
 })
-export class PredialModule {}
+export class AguaPotableModule {}

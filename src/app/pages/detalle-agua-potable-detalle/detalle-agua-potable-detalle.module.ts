@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DetalleRefrendoPage } from './detalle-refrendo.page';
-import { DetalleRefrendoPopoverPage } from  '../detalle-refrendo-popover/detalle-refrendo-popover';
+import { DetalleAguaPotableDetallePage } from './detalle-agua-potable-detalle.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: DetalleRefrendoPage
+    component: DetalleAguaPotableDetallePage
   }
 ];
 
@@ -22,12 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [
-    DetalleRefrendoPage,
-    DetalleRefrendoPopoverPage
-  ],
-  entryComponents: [
-    DetalleRefrendoPopoverPage
-  ]
+  declarations: [DetalleAguaPotableDetallePage]
 })
-export class DetalleRefrendoPageModule {}
+export class DetalleAguaPotableDetallePageModule {}

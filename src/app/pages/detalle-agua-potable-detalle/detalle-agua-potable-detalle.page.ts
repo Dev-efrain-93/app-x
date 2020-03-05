@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 
 @Component({
-  selector: 'detalle-predial-detalle',
-  templateUrl: './detalle-predial-detalle.page.html',
-  styleUrls: ['./detalle-predial-detalle.page.scss'],
+  selector: 'detalle-agua-potable-detalle',
+  templateUrl: './detalle-agua-potable-detalle.page.html',
+  styleUrls: ['./detalle-agua-potable-detalle.page.scss'],
 })
-export class DetallePredialDetallePage implements OnInit {
+export class DetalleAguaPotableDetallePage implements OnInit {
 
   concepto: string;
   detalleAdeudo: any;

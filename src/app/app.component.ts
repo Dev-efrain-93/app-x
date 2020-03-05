@@ -29,14 +29,9 @@ export class AppComponent implements OnInit {
       icon: 'home'
     },
     {
-      title: 'Predial',
+      title: 'Agua Potable',
       url: '/app/tabs/predial',
-      icon: 'compass'
-    },
-    {
-      title: 'Refrendo',
-      url: '/app/tabs/refrendo',
-      icon: 'logo-model-s'
+      icon: 'wallet'
     },
     {
       title: 'Acerca de',

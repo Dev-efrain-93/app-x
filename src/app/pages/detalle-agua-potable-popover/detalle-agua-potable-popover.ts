@@ -25,9 +25,9 @@ import { FileOpener } from '@ionic-native/file-opener/ngx';
 })
 
 
-export class DetalleRefrendoPopoverPage {
+export class DetalleAguaPotablePopoverPage {
 
-  detalleRefrendo: any;
+  detallePredial: any;
 
   constructor(
     public popoverCtrl: PopoverController,
@@ -42,12 +42,12 @@ export class DetalleRefrendoPopoverPage {
   ) {}
 
   ngAfterViewInit() {
-    this.detalleRefrendo = this.navParams.get('detalleRefrendo');
-    console.log("Dentro del componente popover de los detalles del refrendo");
+    this.detallePredial = this.navParams.get('detallePredial');
+    console.log("dentro del componente popover de los detalles");
   }
 
   /**
-   * Descargar presupuesto vehicular
+   * Descargar presupuesto predial
    */
   downloadFile() {
 
@@ -55,9 +55,9 @@ export class DetalleRefrendoPopoverPage {
     this.popoverCtrl.dismiss();
 
     const now = new Date(Date.now());
-    const url = this.detalleRefrendo.urlPresupuesto;
+    const url = this.detallePredial.urlPresupuesto;
     const fecha = now.toLocaleString();
-    const nombreArchivo = 'presupuesto_vehicular_' + this.detalleRefrendo.serieVehiculo + '_' + fecha + '.pdf';
+    const nombreArchivo = 'presupuesto_predial_' + this.detallePredial.numeroCuenta + '_' + fecha + '.pdf';
 
     this.loadingService.present();
     if(this.platform.is('desktop')) {
@@ -99,16 +99,16 @@ export class DetalleRefrendoPopoverPage {
    */
   generateQR() {
     
-    console.log("Redirigiendo a qr refrendo");
+    console.log("Redirigiendo a qr");
     this.popoverCtrl.dismiss();
 
     let navigationExtras: NavigationExtras = {
       state: {
-        detalleRefrendo: this.detalleRefrendo
+        detallePredial: this.detallePredial
       }
     }
 
-    this.router.navigateByUrl('/app/tabs/refrendo/detalle-refrendo-qr', navigationExtras);
+    this.router.navigateByUrl('/app/tabs/predial/detalle-predial-qr', navigationExtras);
   }
 
 }

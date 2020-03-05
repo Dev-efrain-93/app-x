@@ -27,7 +27,7 @@ export class AcercaPage {
         this.appName = value;
       }).catch(err => {
         console.log(err);
-        this.appName = 'SEFIN Móvil';
+        this.appName = 'SIAPA Móvil';
       });
 
       this.appVersion.getVersionNumber().then(value => {

@@ -9,12 +9,12 @@ import { ToastService } from '../../services/toast.service';
 import { Storage } from '@ionic/storage';
 
 @Component({
-  selector: 'page-predial',
-  templateUrl: 'predial.html',
-  styleUrls: ['./predial.scss'],
+  selector: 'page-agua-potable',
+  templateUrl: 'agua-potable.html',
+  styleUrls: ['./agua-potable.scss'],
 })
 
-export class PredialPage implements OnInit {
+export class AguaPotablePage implements OnInit {
   
   predial: any;
   enviado = false;

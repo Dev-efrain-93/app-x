@@ -12,15 +12,6 @@
 </ion-header>
 
 <ion-content fullscreen [scrollEvents]="true" (ionScroll)="onScroll($event)">
-  <ion-grid class="grid-top-index">
-    <ion-row>
-      <ion-col class="col-align-center">
-        <ion-toolbar (click)="verLugaresPago()">
-          <ion-searchbar mode="md" search-icon="pin" animated="true" placeholder="Ubicar lugares de pago..." disabled="true"></ion-searchbar>
-        </ion-toolbar>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
   <ion-slides [options]="slideOptions" class="home-slides" #homeSlides pager="true">
     <ion-slide class="home-slide-item" *ngFor="let slide of slideItems; let i=index" [ngStyle]="{'background-image':'url(' + slide.image + ')', 'background-position': 'center center'}">
       <ion-grid fixed="true">
@@ -42,7 +33,7 @@
   </ion-slides>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="center" #fab>
-    <ion-fab-button class="gbounce" color="comunication" (click)="verLugaresPago()">
+    <ion-fab-button class="gbounce" color="comunication">
       <ion-icon color="light" src="../../../assets/icons/_ionicons_svg_ios-arrow-down.svg"></ion-icon>
     </ion-fab-button>
   </ion-fab>
